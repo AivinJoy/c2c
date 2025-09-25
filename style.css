@@ -1,0 +1,438 @@
+/* =================================================================
+   GLOBAL STYLES & CSS VARIABLES
+================================================================= */
+:root {
+    --bg-light: #f4f6f8;
+    --white: #ffffff;
+    --text-dark: #333;
+    --text-medium: #6c757d;
+    --text-light: #adb5bd;
+    --blue: #5a7ffc;
+    --blue-light: #e6eaff;
+    --yellow: #ffc107;
+    --yellow-light: #fff8e1;
+    --skyblue: #34b3f1;
+    --skyblue-light: #e1f5fe;
+    --pink: #ff85a0;
+    --pink-light: #ffe0e6;
+    --green: #82e28a;
+    --green-light: #e0fae1;
+    --purple: #8A2BE2;
+    --border-light: #e0e0e0;
+    --shadow-light: rgba(0, 0, 0, 0.05);
+    --red: #d9534f;
+    --red-light: #f8d7da;
+    --orange: #f0ad4e;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    overflow: hidden;
+}
+
+.page-section {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* =================================================================
+   LOGIN PAGE STYLES
+================================================================= */
+#login-page {
+    background-color: #e7e7e7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+#login-page .login-container {
+    flex-grow: 1;
+    background-color: #ffffff;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    max-width: 1200px; /* Optional: constrain max width on large screens */
+    max-height: 800px;
+}
+
+#login-page .login-content {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    padding: 20px;
+}
+
+#login-page .logo {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 20px;
+}
+
+#login-page .login-content h2 {
+    margin: 0 0 10px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #212529;
+}
+
+#login-page .login-content p {
+    margin: 0 0 30px;
+    color: #6c757d;
+    font-size: 14px;
+}
+
+#login-page .login-form .input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+#login-page .login-form input[type="text"],
+#login-page .login-form input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#login-page .login-form input[type="text"]::placeholder,
+#login-page .login-form input[type="password"]::placeholder {
+    color: #adb5bd;
+}
+
+#login-page .login-form input[type="text"]:focus,
+#login-page .login-form input[type="password"]:focus {
+    outline: none;
+    border-color: #8A2BE2;
+    box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.1);
+}
+
+#login-page .login-form .options {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+#login-page .login-form .options input[type="checkbox"] {
+    margin-right: 8px;
+    width: 16px;
+    height: 16px;
+    accent-color: #6f42c1;
+}
+
+#login-page .login-form .options label {
+    font-size: 14px;
+    color: #495057;
+}
+
+#login-page .login-form button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background-color: #7B68EE;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#login-page .login-form button:hover {
+    background-color: #6A5ACD;
+}
+
+
+/* =================================================================
+   COMMON DASHBOARD STYLES (Home & Second Page)
+================================================================= */
+.dashboard-container {
+    display: grid;
+    grid-template-columns: 80px 1fr 300px;
+    grid-template-rows: 1fr;
+    gap: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+}
+
+.sidebar {
+    background-color: var(--white);
+    border-radius: 12px 0 0 12px;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 2px 10px var(--shadow-light);
+    height: 100%;
+}
+
+.sidebar-logo { width: 40px; height: 40px; margin-bottom: 20px; }
+.sidebar-logo svg { width: 100%; height: 100%; }
+.sidebar-divider { width: 60%; border: none; border-top: 1px solid var(--border-light); margin-bottom: 20px; }
+.sidebar-nav { display: flex; flex-direction: column; gap: 15px; flex-grow: 1; }
+.nav-item { color: var(--text-medium); font-size: 20px; padding: 10px; border-radius: 8px; width: 50px; height: 50px; display: flex; justify-content: center; align-items: center; text-decoration: none; transition: background-color 0.2s, color 0.2s; }
+.nav-item svg { width: 24px; height: 24px; }
+.nav-item.active { background-color: var(--purple); color: var(--white); }
+.nav-item:hover:not(.active) { background-color: var(--blue-light); color: var(--blue); }
+.sidebar-settings { margin-top: auto; }
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: var(--white);
+    padding: 25px;
+    border-radius: 0;
+    box-shadow: 0 2px 10px var(--shadow-light);
+    overflow-y: auto;
+}
+
+.main-header { display: flex; justify-content: space-between; align-items: center; }
+.main-header h1 { font-size: 28px; font-weight: 600; margin-bottom: 5px; }
+.main-header .subtitle { font-size: 15px; color: var(--text-medium); }
+.section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+.section-title { font-size: 20px; font-weight: 600; }
+.view-all { display: inline-block; color: var(--blue); font-size: 14px; text-decoration: none; font-weight: 500; }
+.view-all i { margin-left: 5px; }
+
+.middle-grid, .bottom-grid { display: grid; gap: 20px; }
+.bottom-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.card { background-color: var(--white); padding: 20px; border-radius: 12px; display: flex; flex-direction: column; }
+#home-page .card { box-shadow: 0 2px 8px var(--shadow-light); }
+.card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+.card h3 { font-size: 18px; font-weight: 600; margin-bottom: 15px; }
+.search-box { display: flex; align-items: center; background-color: var(--bg-light); border-radius: 20px; padding: 8px 15px; }
+.search-box input { border: none; background: none; outline: none; font-size: 15px; color: var(--text-dark); width: 100%; }
+
+/* Utility icon colors */
+.icon.blue, .task-marker.blue { background-color: var(--blue); }
+.icon.yellow, .task-marker.yellow { background-color: var(--yellow); }
+.icon.skyblue, .task-marker.skyblue { background-color: var(--skyblue); }
+.icon.pink, .task-marker.pink { background-color: var(--pink); }
+.icon.green, .task-marker.green { background-color: var(--green); }
+
+/* =================================================================
+   HOME PAGE: SPECIFIC STYLES
+================================================================= */
+#home-page .main-content { gap: 20px; }
+#home-page .view-all { margin-top: 10px; align-self: flex-start; }
+#home-page .middle-grid { grid-template-columns: 2fr 1fr; }
+
+/* Courses Grid */
+#home-page .courses-section { display: flex; flex-direction: column; }
+#home-page .courses-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 15px; }
+#home-page .course-card { padding: 15px; border-radius: 12px; box-shadow: 0 2px 8px var(--shadow-light); display: flex; flex-direction: column; color: var(--text-dark); }
+#home-page .course-card .card-icon { width: 45px; height: 45px; border-radius: 8px; display: flex; justify-content: center; align-items: center; font-size: 22px; margin-bottom: 10px; }
+#home-page .course-card h3 { font-size: 16px; font-weight: 600; margin-bottom: auto; padding-bottom: 10px; }
+#home-page .attendance-wrapper { display: flex; align-items: center; justify-content: space-between; margin-top: 10px; }
+#home-page .attendance-details { padding: 4px 8px; border-radius: 6px; }
+#home-page .attendance-details .percent { font-size: 18px; font-weight: 600; color: var(--text-dark); }
+#home-page .wave-icon { width: 30px; height: 20px; }
+#home-page .python-logo { padding: 4px; }
+#home-page .course-card.blue { background-color: var(--blue-light); }
+#home-page .course-card.blue .card-icon, #home-page .course-card.blue .attendance-details { background: linear-gradient(135deg, var(--white) 50%, var(--blue-light) 50%); }
+#home-page .course-card.blue .wave-icon { color: var(--blue); }
+#home-page .course-card.yellow { background-color: var(--yellow-light); }
+#home-page .course-card.yellow .card-icon, #home-page .course-card.yellow .attendance-details { background: linear-gradient(135deg, var(--white) 50%, var(--yellow-light) 50%); }
+#home-page .course-card.yellow .wave-icon { color: var(--yellow); }
+#home-page .course-card.yellow .card-icon { color: var(--yellow); }
+#home-page .course-card.skyblue { background-color: var(--skyblue-light); }
+#home-page .course-card.skyblue .card-icon, #home-page .course-card.skyblue .attendance-details { background: linear-gradient(135deg, var(--white) 50%, var(--skyblue-light) 50%); }
+#home-page .course-card.skyblue .wave-icon { color: var(--skyblue); }
+#home-page .course-card.skyblue .card-icon { color: var(--skyblue); }
+#home-page .course-card.pink { background-color: var(--pink-light); }
+#home-page .course-card.pink .card-icon, #home-page .course-card.pink .attendance-details { background: linear-gradient(135deg, var(--white) 50%, var(--pink-light) 50%); }
+#home-page .course-card.pink .wave-icon { color: var(--pink); }
+#home-page .course-card.pink .card-icon { color: var(--pink); }
+#home-page .course-card.green { background-color: var(--green-light); }
+#home-page .course-card.green .card-icon, #home-page .course-card.green .attendance-details { background: linear-gradient(135deg, var(--white) 50%, var(--green-light) 50%); }
+#home-page .course-card.green .wave-icon { color: var(--green); }
+#home-page .course-card.green .card-icon { color: var(--green); }
+
+/* CGPA Graph, Classes */
+#home-page .cgpa-value { font-size: 16px; font-weight: 500; color: var(--blue); }
+#home-page .cgpa-value i { color: var(--green); margin-left: 5px; }
+#home-page .graph-container { flex-grow: 1; min-height: 150px; }
+#home-page .graph-container svg { width: 100%; height: 100%; }
+#home-page .todays-classes-card ul { list-style: none; }
+#home-page .todays-classes-card li { font-size: 14px; margin-bottom: 10px; display: flex; align-items: center; }
+#home-page .todays-classes-card li .time { font-weight: 500; color: var(--text-medium); width: 70px; margin-right: 10px; }
+
+/* Attendance Gauge */
+#home-page .semester-attendance-card { align-items: center; }
+#home-page .attendance-gauge-container { width: 100%; max-width: 180px; margin-bottom: 10px; }
+#home-page .attendance-gauge .gauge-arc { stroke-width: 10; stroke-linecap: round; stroke-dasharray: 2 4; }
+#home-page .attendance-gauge .red { stroke: var(--red); }
+#home-page .attendance-gauge .yellow { stroke: var(--yellow); }
+#home-page .attendance-gauge .orange { stroke: var(--orange); }
+#home-page .attendance-gauge .green { stroke: var(--green); }
+#home-page .attendance-gauge .gauge-text { font-size: 28px; font-weight: 700; text-anchor: middle; fill: var(--text-dark); }
+#home-page .gauge-subtitle { font-size: 14px; color: var(--text-medium); margin-top: -10px; }
+#home-page .semester-attendance-card small { font-size: 12px; color: var(--text-light); }
+#home-page .stats-meaning-btn { background-color: #f0f0f0; border: none; border-radius: 20px; padding: 6px 12px; font-size: 11px; color: var(--text-medium); cursor: pointer; margin-top: auto; }
+
+/* Notifications, Exams, Pending */
+#home-page .notifications-card ul, #home-page .internal-exam-card ul, #home-page .pending-work-card ul { list-style: none; margin-bottom: 15px; flex-grow: 1; }
+#home-page .notifications-card li, #home-page .internal-exam-card li, #home-page .pending-work-card li { font-size: 14px; margin-bottom: 12px; display: flex; align-items: center; }
+#home-page .notifications-card i, #home-page .internal-exam-card .icon, #home-page .pending-work-card .icon { margin-right: 10px; font-size: 16px; width: 20px; text-align: center; }
+#home-page .notifications-card i.success { color: var(--green); }
+#home-page .notifications-card i.error { color: var(--red); }
+#home-page .internal-exam-card li small { margin-left: auto; color: var(--text-medium); }
+
+/* Home Right Panel */
+#home-page .right-panel {
+    background-color: var(--white);
+    border-radius: 0 12px 12px 0;
+    padding: 25px;
+    display: grid;
+    grid-template-rows: auto 1fr 1fr 1fr;
+    gap: 20px;
+    height: 100%;
+    box-shadow: 0 2px 10px var(--shadow-light);
+}
+#home-page .right-panel > .card {
+    margin: 0; padding: 15px; box-shadow: none; border: 1px solid var(--border-light);
+}
+#home-page .right-panel .search-box { width: 100%; }
+#home-page .right-panel .search-box i { color: var(--text-medium); cursor: pointer; }
+#home-page .right-panel .search-box input { margin: 0 10px; }
+#home-page .right-panel .search-box input::placeholder { color: var(--text-light); }
+#home-page .profile-card { text-align: center; border: none !important; }
+#home-page .profile-pic-container { width: 80px; height: 80px; border-radius: 50%; overflow: hidden; margin: 0 auto 15px; border: 3px solid var(--blue-light); }
+#home-page .profile-pic { width: 100%; height: 100%; object-fit: cover; }
+#home-page .profile-card h3 { font-size: 18px; font-weight: 600; margin-bottom: 5px; }
+#home-page .profile-card .college { font-size: 13px; color: var(--text-medium); margin-bottom: 15px; }
+#home-page .activity-points { display: flex; justify-content: space-around; align-items: center; margin-top: auto; width: 100%; }
+#home-page .point-item { text-align: center; }
+#home-page .point-item p { font-size: 12px; color: var(--text-medium); margin-bottom: 4px; }
+#home-page .point-item strong { font-size: 18px; font-weight: 600; color: var(--text-dark); }
+
+/* Calendar */
+#home-page .calendar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+#home-page .calendar-header h4 { font-size: 16px; font-weight: 600; }
+#home-page .calendar-header i { color: var(--text-medium); cursor: pointer; padding: 5px; }
+#home-page .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); text-align: center; gap: 5px; }
+#home-page .day-label { font-size: 12px; font-weight: 500; color: var(--text-medium); margin-bottom: 5px; }
+#home-page .day { font-size: 13px; padding: 5px; border-radius: 50%; width: 28px; height: 28px; display: flex; justify-content: center; align-items: center; cursor: pointer; margin: 0 auto; }
+#home-page .day.faded { color: var(--text-light); }
+#home-page .day.today { background-color: var(--purple); color: var(--white); font-weight: 600; }
+
+
+/* =================================================================
+   SECOND PAGE: SPECIFIC STYLES
+================================================================= */
+#second-page .card h3 { margin: 0; }
+#second-page .card .card-header { padding: 0; margin-bottom: 10px; }
+
+/* Events Section */
+#second-page .events-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; }
+#second-page .event-card { padding: 15px; border-radius: 12px; display: flex; flex-direction: column; align-items: flex-start; }
+#second-page .event-card .card-icon { font-size: 18px; margin-bottom: 10px; width: 35px; height: 35px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--white); }
+#second-page .event-card h3 { font-size: 15px; font-weight: 500; margin-bottom: 10px; flex-grow: 1; }
+#second-page .status { border: none; padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 500; cursor: pointer; }
+#second-page .status.applied { background-color: var(--white); color: var(--text-dark); }
+#second-page .status.apply { background-color: var(--text-dark); color: var(--white); }
+#second-page .event-card.green { background-color: var(--green-light); color: var(--green); }
+#second-page .event-card.green .card-icon { background-color: var(--green); }
+#second-page .event-card.lightblue { background-color: var(--skyblue-light); color: var(--skyblue); }
+#second-page .event-card.lightblue .card-icon { background-color: var(--skyblue); }
+#second-page .event-card.blue { background-color: var(--blue-light); color: var(--blue); }
+#second-page .event-card.blue .card-icon { background-color: var(--blue); }
+#second-page .event-card.yellow { background-color: var(--yellow-light); color: var(--yellow); }
+#second-page .event-card.yellow .card-icon { background-color: var(--yellow); }
+#second-page .event-card.pink { background-color: var(--pink-light); color: var(--pink); }
+#second-page .event-card.pink .card-icon { background-color: var(--pink); }
+#second-page .event-card.red { background-color: var(--red-light); color: var(--red); }
+#second-page .event-card.red .card-icon { background-color: var(--red); }
+
+/* To-do List Section */
+#second-page .todo-actions { display: flex; gap: 10px; align-items: center; }
+#second-page .todo-actions .search-box { border-radius: 8px; padding: 6px 12px; }
+#second-page .todo-actions .search-box i { margin-right: 8px; }
+#second-page .add-task-btn { background-color: var(--purple); color: var(--white); border: none; border-radius: 8px; width: 32px; height: 32px; font-size: 16px; cursor: pointer; }
+#second-page .todo-list-section { display: flex; flex-direction: column; gap: 10px; }
+#second-page .todo-week-separator { font-size: 16px; font-weight: 600; margin: 10px 0 5px; }
+#second-page .todo-list { display: flex; flex-direction: column; }
+#second-page .todo-item { display: grid; grid-template-columns: 1fr 100px 150px 80px; align-items: center; gap: 15px; padding: 12px 0; border-bottom: 1px solid var(--border-light); }
+#second-page .todo-item:last-child { border-bottom: none; }
+#second-page .task-info { display: flex; align-items: center; gap: 10px; }
+#second-page .task-marker { width: 12px; height: 12px; border-radius: 4px; flex-shrink: 0; }
+#second-page .task-info p { font-size: 14px; }
+#second-page .task-due-date { font-weight: 500; text-align: center; }
+#second-page .task-due-date.today { color: var(--red); }
+#second-page .task-meta { display: flex; align-items: center; justify-content: center; gap: 10px; }
+#second-page .task-tag { background-color: var(--bg-light); padding: 3px 8px; border-radius: 6px; }
+#second-page .task-assignees { display: flex; align-items: center; }
+#second-page .task-assignees img { width: 24px; height: 24px; border-radius: 50%; border: 1px solid var(--white); margin-left: -8px; }
+#second-page .task-assignees img:first-child { margin-left: 0; }
+#second-page .task-actions { display: flex; align-items: center; gap: 5px; color: var(--text-medium); justify-content: flex-end; }
+#second-page .task-actions i { font-size: 15px; cursor: pointer; }
+#second-page .task-actions span { font-size: 12px; margin-right: 5px; }
+
+/* Internal Marks */
+#second-page .on-track-status { display: flex; align-items: center; font-size: 13px; color: var(--green); font-weight: 500; }
+#second-page .status-indicator { width: 8px; height: 8px; background-color: var(--green); border-radius: 50%; margin-right: 8px; }
+#second-page .marks-chart { display: flex; justify-content: space-around; align-items: flex-end; flex-grow: 1; margin-top: 10px; }
+#second-page .mark-bar-wrapper { display: flex; flex-direction: column-reverse; align-items: center; height: 100%; width: 100%; padding: 0 5px; }
+#second-page .mark-bar { width: 12px; background: var(--blue); border-radius: 6px 6px 0 0; position: relative; }
+#second-page .mark-value { font-size: 11px; font-weight: 500; color: var(--text-dark); margin-bottom: 5px; }
+#second-page .mark-label { font-size: 12px; color: var(--text-medium); margin-top: 8px; }
+
+/* Skill Progress & Ongoing Projects */
+#second-page .skill-list, #second-page .project-list { list-style: none; display: flex; flex-direction: column; gap: 15px; }
+#second-page .skill-list li { display: flex; flex-direction: column; gap: 5px; }
+#second-page .skill-list p { font-size: 14px; font-weight: 500; }
+#second-page .progress-bar-split { display: flex; width: 100%; height: 8px; background-color: var(--bg-light); border-radius: 4px; overflow: hidden; }
+#second-page .progress-bar-split .progress-fill { height: 100%; background-color: var(--purple); }
+#second-page .progress-bar-split .progress-gap { width: 4px; }
+#second-page .progress-bar-split .progress-fill.faded { background-color: var(--blue-light); }
+#second-page .skill-progress-card .view-all, #second-page .ongoing-projects-card .view-all { margin-top: auto; padding-top: 15px; }
+#second-page .project-list li { display: flex; align-items: center; gap: 12px; font-size: 14px; }
+#second-page .icon-bg { width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; border-radius: 8px; color: var(--white); flex-shrink: 0; font-size: 18px; }
+#second-page .project-list p { font-weight: 500; }
+#second-page .project-list small { color: var(--text-medium); }
+
+/* Second Page Right Panel */
+#second-page .right-panel.resource-hub {
+    background-color: var(--white);
+    border-radius: 0 12px 12px 0;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    height: 100%;
+}
+#second-page .resource-hub .search-box { width: 100%; border-radius: 8px; }
+#second-page .resource-hub .search-box a { text-decoration: none; color: var(--blue); font-size: 14px; }
+#second-page .resource-list { flex-grow: 1; overflow-y: auto; }
+#second-page .resource-item { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border-light); }
+#second-page .pdf-icon { color: var(--red); font-size: 24px; }
+#second-page .resource-info { flex-grow: 1; }
+#second-page .resource-info p { font-size: 14px; font-weight: 500; }
+#second-page .resource-info small { color: var(--text-medium); }
+#second-page .download-btn { color: var(--text-medium); text-decoration: none; font-size: 16px; }
+#second-page .resource-hub > .view-all { margin-top: 10px; align-self: flex-start; }
+#second-page .extra-links-card { margin-top: auto; padding-top: 15px; border-top: 1px solid var(--border-light); }
+#second-page .extra-links-card h3 { font-size: 15px; font-weight: 600; margin-bottom: 10px; }
+#second-page .social-links { display: flex; justify-content: space-between; align-items: center; }
+#second-page .social-icon { color: var(--text-medium); font-size: 20px; text-decoration: none; padding: 8px; border-radius: 8px; transition: background-color 0.2s, color 0.2s; }
+#second-page .social-icon:hover { background-color: var(--bg-light); color: var(--text-dark); }
